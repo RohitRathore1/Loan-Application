@@ -2,8 +2,6 @@ package com.example.customdashboardbackend.service;
 
 import com.example.customdashboardbackend.entity.Shipment;
 import com.example.customdashboardbackend.repository.ShipmentRepository;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
 import net.sf.jsqlparser.JSQLParserException;
 import net.sf.jsqlparser.parser.CCJSqlParser;
 import net.sf.jsqlparser.parser.CCJSqlParserUtil;
@@ -14,7 +12,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestBody;
-
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.swing.plaf.nimbus.State;
 import java.sql.SQLException;
 import java.sql.Statement;
