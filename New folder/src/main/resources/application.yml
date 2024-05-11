@@ -1,0 +1,21 @@
+spring:
+    datasource:
+        driver-class-name: org.mariadb.jdbc.Driver
+        password: rohit
+        url: jdbc:mariadb://localhost:<loandbport>/loan_db?serverTimezone=UTC&useLegacyDatetimeCode=false
+        username: rohit
+    jpa:
+        hibernate:
+            ddl-auto: update
+        show-sql: true
+
+
+    portforwarding:
+            configurations:
+                loandbport:
+                    jumpServer: 10.200.106.69
+                    user: ipfwd
+                    port: 22
+                    localPort: <loandbport>
+                    remotePort: 3306
+                    remoteHost: data-blume-devdb-5.rez1.com
