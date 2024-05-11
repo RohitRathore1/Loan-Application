@@ -12,7 +12,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestBody;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.swing.plaf.nimbus.State;
