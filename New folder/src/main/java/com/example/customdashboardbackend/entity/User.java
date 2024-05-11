@@ -1,9 +1,11 @@
 package com.example.customdashboardbackend.entity;
 
+import lombok.*;
 import javax.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
+import com.example.customdashboardbackend.enums.Role;
+import com.example.customdashboardbackend.entity.Address;
+import com.example.customdashboardbackend.entity.LoanApplication;
 
 import java.util.List;
 
@@ -15,19 +17,37 @@ import java.util.List;
 public class User {
 
     @Id
-    @GeneratedValue
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id", updatable = false, nullable = false)
+    private Long id;
+
+    @Column(name = "user_name", nullable = false)
     private String name;
+
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
+
+    @Column(name = "password", nullable = false)
     private String password;
-    private String role;
+
+    @Column(name = "phone_number", nullable = false, unique = true)
+    private String phoneNumber;
+
+    @Embedded
+    @Column(name = "address", nullable = false)
+    private Address address;
+
+    @Column(name = "role")
+    @Enumerated(EnumType.STRING)
+    private Role role;
     
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user", referencedColumnName = "email")
-    private List<Dashboard> dashboards;
+    @Column(name = "gender", nullable = false)
+    private String gender;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", referencedColumnName = "default_dashboard")
-    private Dashboard default_dashboard;
+    @Column(name = "loan_application_id")
+    @OneToMany(mappedBy = "user")
+    @JoinColumn(name = "loan_id")
+    private List<LoanApplication> loanApplications;
+
 }
