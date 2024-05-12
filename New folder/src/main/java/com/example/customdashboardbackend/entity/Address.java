@@ -6,7 +6,7 @@ import javax.persistence.*;
 @Embeddable
 @Getter
 @Setter
-@toString
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 public class Address {

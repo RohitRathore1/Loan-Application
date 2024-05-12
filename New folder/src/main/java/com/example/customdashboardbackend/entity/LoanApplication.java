@@ -1,7 +1,11 @@
 package com.example.customdashboardbackend.entity;
 
+import com.example.customdashboardbackend.enums.AcceptanceStatus;
+import com.example.customdashboardbackend.entity.LoanApplication;
 import lombok.*;
 import javax.persistence.*;
+import java.time.LocalDate;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Getter
 @Setter
@@ -51,8 +55,8 @@ public class LoanApplication {
     @Column(name = "coapplicant_name", nullable = false)
     private String coapplicantName;
 
-    @Column(name = "coapplicant_occupation", nullable = false)
-    private Occupation coapplicantOccupation;
+    // @Column(name = "coapplicant_occupation", nullable = false)
+    // private Occupation coapplicantOccupation;
 
     @Column(name = "coapplicant_income", nullable = false)
     private String coapplicantIncome;
@@ -60,8 +64,8 @@ public class LoanApplication {
     @Column(name = "credit_history", nullable = false)
     private String creditHistory;
 
-    @Column(name = "property_area", nullable = false)
-    private String propertyArea;
+    @Column(name = "property", nullable = false)
+    private String property;
 
     @Column(name = "date_of_birth", nullable = false)
     private LocalDate dateOfBirth;
@@ -75,4 +79,10 @@ public class LoanApplication {
 
     @Column(name = "existing_loan")
     private String existingLoan;
+
+    @ManyToOne
+    @JsonBackReference
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
 }

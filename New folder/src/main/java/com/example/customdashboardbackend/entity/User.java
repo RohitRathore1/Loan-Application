@@ -2,6 +2,7 @@ package com.example.customdashboardbackend.entity;
 
 import lombok.*;
 import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import com.example.customdashboardbackend.enums.Role;
 import com.example.customdashboardbackend.entity.Address;
@@ -45,9 +46,8 @@ public class User {
     @Column(name = "gender", nullable = false)
     private String gender;
 
-    @Column(name = "loan_application_id")
-    @OneToMany(mappedBy = "user")
-    @JoinColumn(name = "loan_id")
+   @OneToMany(mappedBy = "user")
+   @JsonManagedReference
     private List<LoanApplication> loanApplications;
 
 }

@@ -10,9 +10,7 @@ sourceCompatibility = '1.8'
 
 repositories {
 	mavenCentral()
-	google()
 }
-
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web:2.5.3'
 	implementation 'org.mariadb.jdbc:mariadb-java-client:2.1.2'
@@ -23,6 +21,4 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.3'
 }
 
-tasks.named('test') {
-	useJUnitPlatform()
-}
+
